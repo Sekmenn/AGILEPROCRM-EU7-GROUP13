@@ -1,6 +1,7 @@
 package com.agileprocrm.step_definitions;
 
 import com.agileprocrm.pages.LoginPage;
+import com.agileprocrm.utilities.ConfigurationReader;
 import com.agileprocrm.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,20 +15,7 @@ public class loginStepDefs {
 
     @Given("User enters {string} information")
     public void user_enters_information(String userType) {
-
-        String user = userType.toLowerCase();
-
-        switch (user) {
-            case "hr":
-                login.loginAsHR();
-                break;
-            case "helpdesk":
-                login.loginAsHelpDesk();
-                break;
-            case "marketing":
-                login.loginAsMarketing();
-                break;
-        }
+        login.login(ConfigurationReader.get(userType));
     }
 
     @Then("User should login")
@@ -41,11 +29,12 @@ public class loginStepDefs {
     @Given("User enters {string} and {string}")
     public void user_enters_and(String username, String password) {
 
-        login.login(username, password);
+        login.loginNegative(username, password);
     }
 
     @Then("User should not login")
     public void user_should_not_login() {
         Assert.assertTrue(login.errorText.isDisplayed());
     }
+
 }

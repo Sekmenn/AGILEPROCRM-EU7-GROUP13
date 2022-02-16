@@ -36,9 +36,15 @@ public class LoginPage extends BasePage{
         loginButton.click();
     }
 
-    public void login(String username,String password){
+    public void loginNegative(String username,String password){
         usernameBox.sendKeys(username);
         passwordBox.sendKeys(password);
+        loginButton.click();
+    }
+
+    public void login(String username){
+        usernameBox.sendKeys(username);
+        passwordBox.sendKeys(ConfigurationReader.get("password"));
         loginButton.click();
     }
 }
