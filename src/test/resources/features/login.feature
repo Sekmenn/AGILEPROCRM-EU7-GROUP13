@@ -10,7 +10,7 @@ Feature: Login function
       | helpdesk_username  |
       | hr_username        |
 
-@wip
+
   Scenario Outline: User should not be able to login with wrong credentials
     Given User enters "<username>" and "<password>"
     Then User should not login

@@ -48,3 +48,4 @@ public class LoginPage extends BasePage{
         loginButton.click();
     }
 }
+
