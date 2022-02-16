@@ -1,5 +1,6 @@
 package com.agileprocrm.step_definitions;
 
+import com.agileprocrm.utilities.ConfigurationReader;
 import com.agileprocrm.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -15,6 +16,7 @@ public class Hooks {
     public void setUp(){
         Driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         Driver.get().manage().window().maximize();
+        Driver.get().get(ConfigurationReader.get("url"));
     }
 
     @After
