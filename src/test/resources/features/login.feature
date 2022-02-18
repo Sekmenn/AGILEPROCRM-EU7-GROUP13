@@ -1,7 +1,7 @@
 @login
 Feature: Login function
 
-  Scenario Outline: User login to the application as an HR
+  Scenario Outline: User login to the application
     Given User enters "<userType>" information
     Then User should login
     Examples:
@@ -22,4 +22,12 @@ Feature: Login function
       | hr1@cybertekschool.com |          |
       | hr1@cybertekschool.com | abc123   |
       |                        |          |
+
+  @wip
+  Scenario: User should not be able to login with wrong credentials
+    Given User enters invalid username and password five times
+    And User should not login immediately
+    Then User should display "Please try again after one minute"
+
+
 
