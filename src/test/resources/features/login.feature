@@ -23,7 +23,7 @@ Feature: Login function
       | hr1@cybertekschool.com | abc123   |
       |                        |          |
 
-  @wip
+
   Scenario: User should not be able to login with wrong credentials
     Given User enters invalid username and password five times
     And User should not login immediately
