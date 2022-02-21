@@ -13,7 +13,7 @@ Feature: Workgroups
       | helpdesk_username  |
       | marketing_username |
 
-  Scenario Outline: User should be able to add groups to favorite
+  Scenario Outline: User should be able to add groups to favorites
     Given User enters "<user>" information
     When The user navigates to "Workgroups"
     And User hover over star button of "Sales" group
@@ -25,7 +25,7 @@ Feature: Workgroups
       | helpdesk_username  |
       | marketing_username |
 
-  Scenario Outline: User should be able to add groups to favorite
+  Scenario Outline: User should be able to remove groups from favorites
     Given User enters "<user>" information
     And The user navigates to "Workgroups"
     When User click star button of "Sales" group
