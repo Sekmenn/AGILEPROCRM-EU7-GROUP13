@@ -33,8 +33,6 @@ public class WorkgroupsStepDefs {
     public void verify_is_displayed_under_group(String message, String groupName) {
         String actualMessage = workgroups.favoriteMessageDisplayed(groupName);
         Assert.assertEquals(message,actualMessage);
-        workgroups.clickToFavorite(groupName);
-
     }
 
     @When("User click star button of {string} group")
