@@ -1,4 +1,4 @@
-@wip
+
 Feature: As a user, I can use Applications menu; so that I can install or manage the applications.
 
   Scenario Outline: User can display the applications
@@ -13,7 +13,7 @@ Examples:
 | hr_username        |
 
 
-Scenario Outline: User can send a request for installing if there is no permission for installing
+  Scenario Outline: User can send a request for installing if there is no permission for installing
 Given User enters "<userType>" information
 Then User should login
 When user should be able to click applications
