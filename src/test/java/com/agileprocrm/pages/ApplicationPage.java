@@ -3,6 +3,8 @@ package com.agileprocrm.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class ApplicationPage extends BasePage{
     @FindBy (xpath= "//*[@id=\"sitemap-menu\"]")
     public WebElement CRM;
@@ -19,8 +21,9 @@ public class ApplicationPage extends BasePage{
     @FindBy (xpath="//a[contains(@class,'btn')]")
     public WebElement installButton;
 
-    @FindBy (className = "popup-window-button popup-window-button-accept")
+    @FindBy (xpath = "//*/span[text()='Send']")
     public WebElement sendButton;
 
-
+    @FindBy (className = "mp-detail-content-menu-item")
+    public List<WebElement> applicationsFeatures;
 }
