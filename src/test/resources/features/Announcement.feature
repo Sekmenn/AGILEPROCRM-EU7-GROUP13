@@ -1,3 +1,4 @@
+@wip
 Feature: Sending Announcement
 
 
@@ -24,23 +25,22 @@ Feature: Sending Announcement
     Examples:
       | user               |
       | hr_username        |
-      | helpdesk_username  |
-      | marketing_username |
+      #| helpdesk_username  |
+      #| marketing_username |
 
 
   Scenario Outline: Adding recipients from contact lists
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
     When The user clicks on -Add more- link
-    And The user selects "Employees and departments" and "helpdesk22@cybertekschool.com" from contact lists
-    Then "helpdesk22@cybertekschool.com" should be added in to box.
+    And The user selects "Employees and departments" and "hr77@cybertekschool.com" from contact lists
+    Then "hr77@cybertekschool.com" should be added in to box.
 
     Examples:
-      | user        |
-      | hr_username |
-     # | helpdesk_username  |
-     # | marketing_username |
-     # Problem with the last two users about adding recipient
+      | user               |
+      | hr_username        |
+      | helpdesk_username  |
+      | marketing_username |
 
 
   Scenario Outline: Attaching link by clicking on link icon
@@ -63,12 +63,12 @@ Feature: Sending Announcement
     When The user clicks on "Insert video" icon
     And The user fills up video source box with "https://www.youtube.com/watch?v=zcHb1UqSTR8"
     Then "https://www.youtube.com/watch?v=zcHb1UqSTR8" should be added into message box.
-    #When pasting the url into the box It gives an error message.
+    #When passing the url into the box It gives an error message.
     Examples:
-      | user        |
-      | hr_username |
-     # | helpdesk_username  |
-      #| marketing_username |
+      | user               |
+      | hr_username        |
+      | helpdesk_username  |
+      | marketing_username |
 
 
   Scenario Outline: Adding quote by clicking on camma icon
@@ -89,15 +89,14 @@ Feature: Sending Announcement
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
     When The user clicks on "Add mention" icon
-    And The user selects "Employees and departments" and "helpdesk22@cybertekschool.com" from contact lists
-    Then "helpdesk22@cybertekschool.com" should be added in the message box.
+    And The user selects "Employees and departments" and "hr76@cybertekschool.com" from contact lists
+    Then "hr76@cybertekschool.com" should be added in the message box.
 
     Examples:
-      | user        |
-      | hr_username |
-      #| helpdesk_username  |
-      #| marketing_username |
-   # Problem with the last two users about adding recipient
+      | user               |
+      | hr_username        |
+      | helpdesk_username  |
+      | marketing_username |
 
 
   Scenario Outline: Adding mention by clicking on mention icon
@@ -139,8 +138,8 @@ Feature: Sending Announcement
       | helpdesk_username  |
       | marketing_username |
 
-  @wip
-  Scenario Outline: Recording and attaching video by clicking on record video icon
+
+  Scenario Outline: Adding tag by clicking on add tag icon
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
     When The user clicks on "Add tag" icon

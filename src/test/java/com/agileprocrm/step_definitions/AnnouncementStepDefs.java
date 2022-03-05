@@ -4,12 +4,15 @@ import com.agileprocrm.pages.ActivityStreamPage;
 import com.agileprocrm.pages.AnnouncementPage;
 import com.agileprocrm.utilities.BrowserUtils;
 import com.agileprocrm.utilities.Driver;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import java.util.List;
 
@@ -51,7 +54,6 @@ public class AnnouncementStepDefs {
     public void theUserSelectsDocumentFromAndChooses(String supply, String fileName) {
         announcementPage.fromBitrix.click();
         announcementPage.selectSupply(supply).click();
-        BrowserUtils.waitFor(2);
         announcementPage.selectFile(fileName).click();
         announcementPage.selectButton.click();
     }
@@ -93,6 +95,8 @@ public class AnnouncementStepDefs {
     public void theUserFillsUpVideoSourceBoxWith(String videoUrl) {
        BrowserUtils.waitFor(3);
         announcementPage.videoSourceBox.sendKeys(videoUrl);
+        BrowserUtils.waitFor(3);
+        Assert.assertFalse(announcementPage.videoError.isDisplayed());
         announcementPage.saveButton.click();
     }
 
