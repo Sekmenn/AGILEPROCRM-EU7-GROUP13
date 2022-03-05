@@ -26,7 +26,7 @@ public class AnnouncementPage extends BasePage{
     public WebElement fromBitrix;
 
     public WebElement selectSupply(String supply){
-        return Driver.get().findElement(By.xpath("//span[.='"+supply+"']/.."));
+        return Driver.get().findElement(By.xpath("//span[@title='"+supply+"']"));
     }
 
     public WebElement selectFile(String fileName){
@@ -93,4 +93,7 @@ public class AnnouncementPage extends BasePage{
 
     @FindBy(xpath = "//span[.='Add']")
     public WebElement addButton;
+
+    @FindBy(className = "bxhtmled-video-error-cell")
+    public WebElement videoError;
 }
