@@ -15,6 +15,10 @@ public abstract class BasePage {
        return Driver.get().findElement(By.xpath("//a[@title='"+tabName+"']"));
     }
 
+    public WebElement topTabs(String tabName){
+        return Driver.get().findElement(By.linkText(tabName));
+    }
+
 //    public void navigateToModule(String module){
 //        Driver.get().findElement(By.xpath("//li/a[@title='"+module+"']")).click();
 //    }
