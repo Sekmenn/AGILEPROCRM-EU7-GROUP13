@@ -27,14 +27,16 @@ public class loginStepDefs {
     }
 
     @Given("User enters {string} and {string}")
-    public void user_enters_and(String username, String password) {
+    public void user_enters_and(String username, String password)  {
 
         login.loginNegative(username, password);
     }
 
     @Then("User should not login")
     public void user_should_not_login() {
+
         Assert.assertTrue(login.errorText.isDisplayed());
+
     }
 
 }
