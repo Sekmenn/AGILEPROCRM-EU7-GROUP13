@@ -16,7 +16,7 @@ public abstract class BasePage {
     }
 
     public WebElement topTabs(String tabName){
-        return Driver.get().findElement(By.linkText(tabName));
+        return Driver.get().findElement(By.xpath("//*/span[.='"+tabName+"']"));
     }
 
 //    public void navigateToModule(String module){

@@ -11,7 +11,7 @@ Examples:
 | helpdesk_username  |
 | hr_username        |
 
-  @wip
+
 Scenario Outline: User can send a request for installing if there is no permission for installing
 Given User enters "<userType>" information
 Then User should login

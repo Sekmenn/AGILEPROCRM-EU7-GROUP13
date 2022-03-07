@@ -17,6 +17,21 @@ public class SendMessage extends BasePage{
     @FindBy(xpath = "//*[contains(@id,'destDepartmentTab')]")
     public WebElement contactList;
 
+    @FindBy(xpath = "(//div/input[contains(@type,'file')])[1]")
+    public WebElement choiceFile;
+
+    @FindBy(xpath = "(//*/span[@class='f-wrap']")
+    public WebElement UploadedFile;
+
+    @FindBy(id = "blog-submit-button-save")
+    public WebElement submitButton;
+
+    @FindBy(xpath = "(//a[contains(@id,'disk-attach')])[1]")
+    public WebElement sentFile;
+
+    @FindBy(xpath = "(//img[contains(@id,'disk-attach')])[1]")
+    public WebElement sentImage;
+
 
 
 
