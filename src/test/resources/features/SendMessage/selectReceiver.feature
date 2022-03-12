@@ -6,7 +6,7 @@ Feature: Add multiple users from Employees and Departments
     Given The user logged in as "<userType>"
     And The user click on "Message"
     When User click Add persons box
-    And User User click Employees and departments list
+    And User click Employees and departments list
     Then user add two persons from the list
     And Verify that user sends the message
     Examples:
