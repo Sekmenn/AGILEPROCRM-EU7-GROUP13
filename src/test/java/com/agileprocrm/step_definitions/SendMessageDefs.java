@@ -33,14 +33,14 @@ public class SendMessageDefs {
         message.submitButton.click();
     }
 
-    @Then("user verify the uploaded file name {string}")
+    @Then("user verify the uploaded file named {string}")
     public void userVerifyTheUploadedFileName(String FileName) {
         String actualName = message.sentFile.getText();
         String expectedName = FileName;
         Assert.assertTrue(actualName.contains(expectedName));
     }
 
-    @Then("user verify the uploaded picture name {string}")
+    @Then("user verify the uploaded picture named {string}")
     public void userVerifyTheUploadedPictureName(String FileName) {
         BrowserUtils.waitFor(2);
         String actualName = message.sentImage.getAttribute("alt");
