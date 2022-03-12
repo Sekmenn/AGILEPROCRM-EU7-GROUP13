@@ -7,8 +7,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.time.LocalDate;
 
 public class TaskFunctionalityStepDefs {
 
@@ -162,16 +166,27 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
     taskFunctionalityPage.email.click();
     }
 
-    @Then("user chooses deadline section")
-    public void userChoosesDeadlineSection() {
-        taskFunctionalityPage.DeadLine.click();
+    @Then("user chooses Time Planning")
+    public void userChoosesTimePlanning() {
+        taskFunctionalityPage.timePlanning.click();
     }
 
-    @Then("user selects the time {string}, {string} and {string}")
-    public void userSelectsTheTimeAnd(String day, String hour, String minute) {
+    @Then("user selects deadline")
+    public void userSelectsTheTimeAnd() {
 
-        taskFunctionalityPage.TimeBox1.sendKeys("2");
-        taskFunctionalityPage.TimeBox2.sendKeys("30");
+
+        int day = LocalDate.now().getDayOfMonth();
+
+
+        taskFunctionalityPage.startTimeBox.click();
+        taskFunctionalityPage.deadlineSelectButton.click();
+
+        taskFunctionalityPage.endTimeBox.click();
+        WebElement deadlineDate=Driver.get().findElement(By.xpath("//div/a[@href='javascript:void(0)' and (.='"+day+"5')]"));
+        deadlineDate.click();
+
+        taskFunctionalityPage.hourBox.sendKeys("11");
+        taskFunctionalityPage.minuteBox.sendKeys("15");
         taskFunctionalityPage.deadlineSelectButton.click();
 
 
@@ -192,6 +207,7 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
         Assert.assertTrue(taskFunctionalityPage.ResponsiblePersonCanChangeDeadlineBox.isSelected());
         taskFunctionalityPage.ApproveTaskWhenCompletedBox.click();
         Assert.assertTrue(taskFunctionalityPage.ApproveTaskWhenCompletedBox.isSelected());
+
 
 
     }

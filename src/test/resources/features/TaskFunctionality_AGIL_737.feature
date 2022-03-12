@@ -88,8 +88,8 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
      And user adds things to do
      Then user creates a high priority task
      And user mentions  a marketing user .
-     Then user chooses deadline section
-     Then user selects the time "day", "hour" and "minute"
+     Then user chooses Time Planning
+     Then user selects deadline
      Then user clicks to Option button
      Then user chooses the "Responsible person can change deadline" and "Approve task when completed" section
      Then user adds Task

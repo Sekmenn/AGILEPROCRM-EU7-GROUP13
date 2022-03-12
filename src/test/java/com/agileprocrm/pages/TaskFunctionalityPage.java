@@ -22,6 +22,7 @@ public class TaskFunctionalityPage extends BasePage{
     @FindBy (xpath ="(//*/input[@data-bx-id='datepicker-display'])[1]")
     public WebElement DeadLine;
 
+
     //add mention
     @FindBy (id="bx-b-mention-task-form-bitrix_tasks_task_default_1")
     public WebElement Mention;
@@ -105,11 +106,20 @@ public class TaskFunctionalityPage extends BasePage{
     @FindBy(xpath = "//*[@id=\"bx-component-scope-bitrix_tasks_task_default_1-responsible\"]/span[2]/a[1]")
     public WebElement responsiblepersonBox;
 
-    @FindBy (xpath = "//*/input[@class='bx-calendar-form-input'][1]")
-    public WebElement TimeBox1;
+    @FindBy (xpath = "(//input[@data-bx-id='datepicker-display'])[2]")
+    public WebElement startTimeBox;
 
-    @FindBy (xpath = "//*/input[@class='bx-calendar-form-input'][2]")
-    public WebElement TimeBox2;
+    @FindBy (xpath = "(//input[@data-bx-id='datepicker-display'])[3]")
+    public WebElement endTimeBox;
+
+    @FindBy (xpath = "//span[.='Time planning']")
+    public WebElement timePlanning;
+
+    @FindBy (xpath = "//input[@class='bx-calendar-form-input'][1]")
+    public WebElement hourBox;
+
+    @FindBy (xpath = "//input[@class='bx-calendar-form-input'][2]")
+    public WebElement minuteBox;
 
     @FindBy(xpath = "//*[@id=\"task-form-bitrix_tasks_task_default_1\"]/div[3]/div[2]/div/div[1]/span[2]/span[2]")
     public WebElement Option;
