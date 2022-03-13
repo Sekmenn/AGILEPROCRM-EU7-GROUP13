@@ -11,7 +11,7 @@ public class TaskFunctionalityPage extends BasePage{
     @FindBy (className = "ui-btn-main")
     public WebElement NewTaskButton;
 
-    @FindBy (xpath = "//*[@id=\"task-form-bitrix_tasks_task_default_1\"]/div[1]/div[1]/div[2]/input")
+    @FindBy (xpath = "//*[@id='task-form-bitrix_tasks_task_default_1']/div[1]/div[1]/div[2]/input")
     public WebElement AddThings;
 
 
@@ -44,9 +44,9 @@ public class TaskFunctionalityPage extends BasePage{
     @FindBy(xpath="//input[contains(@class,'js-id-timeestimate-flag')]")
     public WebElement TaskPlanedTimeBox;
     //timeBoxInput
-    @FindBy(xpath ="//*/input[@class=\"js-id-timeestimate-time js-id-timeestimate-hour task-options-inp\"]")
+    @FindBy(xpath ="//*/input[@class='js-id-timeestimate-time js-id-timeestimate-hour task-options-inp']")
     public WebElement HourBox;
-    @FindBy(xpath ="//*/input[@class=\"js-id-timeestimate-time js-id-timeestimate-minute task-options-inp\"]")
+    @FindBy(xpath ="//*/input[@class='js-id-timeestimate-time js-id-timeestimate-minute task-options-inp']")
     public WebElement MinuteBox;
 
 
@@ -67,44 +67,50 @@ public class TaskFunctionalityPage extends BasePage{
     @FindBy (xpath = "//*[@id=\"popup-window-content-reminder-bitrix_tasks_task_default_1-form\"]/span/div/span[1]/span/input[1]")
     public WebElement dataBox;
 
-    @FindBy (xpath = "//*/span[@class=\"bx-calendar-button-text\"][1]")
+    @FindBy (xpath = "//*/span[@class='bx-calendar-button-text'][1]")
     public WebElement Select2;
 
     @FindBy(className = "task-options-reminder-link-mail")
     public  WebElement MailSection;
-    @FindBy (xpath = " //*[@id=\"popup-window-content-reminder-bitrix_tasks_task_default_1-form\"]/span/div/span[3]/select\n")
+    @FindBy (xpath = " //*[@id='popup-window-content-reminder-bitrix_tasks_task_default_1-form']/span/div/span[3]/select")
     public WebElement MailBox;
 
 
     @FindBy (id = "bx-component-scope-bitrix_tasks_task_default_1-responsible")
     public WebElement AddMore;
 
-    @FindBy(xpath = "//*[@id=\"bx-lm-box-last-content\"]/table/tr/td")
+    @FindBy(xpath = "//*[@id='bx-lm-box-last-content']/table/tr/td")
     public WebElement emailTable;
 
 
-    @FindBy (xpath = "//*[@id=\"bx-component-scope-dependson-bitrix_tasks_task_default_1\"]/span[2]/a/span[1]")
+    @FindBy (xpath = "//*[@id='bx-component-scope-dependson-bitrix_tasks_task_default_1']/span[2]/a/span[1]")
     public  WebElement DependentTasks;
 
-    @FindBy (xpath = "//*[@id=\"dependson_last\"]/table")
+    @FindBy (xpath = "//*[@id='dependson_last']/table")
     public WebElement RecentTasks;
 
-    @FindBy(xpath = "//*[@id=\"task-item-set-popupdependson\"]/div[2]/span[1]")
+    @FindBy(xpath = "//*[@id='task-item-set-popupdependson']/div[2]/span[1]")
     public WebElement DependenTasktSelectButton;
 
 
-    @FindBy(xpath = "//*[@id=\"bx-component-scope-templateselector\"]/button")
+    @FindBy(xpath = "//*[@id='bx-component-scope-templateselector']/button")
     public WebElement TaskTemplatesButton;
 
 
-    @FindBy(xpath = "//*[@id=\"popup-window-content-menu-popup-templateselector-form-transport\"]/div/div/a[3]/span[2]")
+    @FindBy(xpath = "//*[@id='popup-window-content-menu-popup-templateselector-form-transport']/div/div/a[3]/span[2]")
     public WebElement AllTemplates;
 
     @FindBy(id="bx-b-mention-task-form-bitrix_tasks_task_default_1")
     public WebElement mention;
 
-    @FindBy(xpath = "//*[@id=\"bx-component-scope-bitrix_tasks_task_default_1-responsible\"]/span[2]/a[1]")
+    @FindBy(xpath = "//*[@id='bx-component-scope-bitrix_tasks_task_default_1-responsible']/span[2]/a[1]")
     public WebElement responsiblepersonBox;
+    @FindBy(css = "a[id^='destDepartmentTab_']")
+    public WebElement EmployeesEmailList;
+
+    @FindBy(xpath = "//*[@href='#U666']")
+    public WebElement email;
+
 
     @FindBy (xpath = "(//input[@data-bx-id='datepicker-display'])[2]")
     public WebElement startTimeBox;
@@ -121,31 +127,65 @@ public class TaskFunctionalityPage extends BasePage{
     @FindBy (xpath = "//input[@class='bx-calendar-form-input'][2]")
     public WebElement minuteBox;
 
-    @FindBy(xpath = "//*[@id=\"task-form-bitrix_tasks_task_default_1\"]/div[3]/div[2]/div/div[1]/span[2]/span[2]")
+    @FindBy(xpath = "//*[@id='task-form-bitrix_tasks_task_default_1']/div[3]/div[2]/div/div[1]/span[2]/span[2]")
     public WebElement Option;
 
-    @FindBy (xpath = "//*[@id=\"bx-component-scope-options-bitrix_tasks_task_default_1\"]/div[1]/div/label/input")
+    @FindBy (xpath = "//*[@id='bx-component-scope-options-bitrix_tasks_task_default_1']/div[1]/div/label/input")
     public WebElement ResponsiblePersonCanChangeDeadlineBox;
 
 
-    @FindBy (xpath = "//*[@id=\"bx-component-scope-options-bitrix_tasks_task_default_1\"]/div[3]/div/label")
+    @FindBy (xpath = "//*[@id='bx-component-scope-options-bitrix_tasks_task_default_1']/div[3]/div/label/input")
     public WebElement ApproveTaskWhenCompletedBox;
 
 
-
-
-@FindBy(className = "bx-finder-box-item-t7-name")
-public WebElement email;
-
-
-    @FindBy(xpath = "//*[@id=\"popup-window-content-BXSocNetLogDestination\"]/div")
-    public List<WebElement> mentionEmailList;
-
-
-
-
-
-    @FindBy (xpath = "//input[contains(@id,'main-grid-checkbox')]")
+    @FindBy (xpath = "//input[contains(@id,'TASKS_GRID_ROLE_ID_')]")
     public WebElement mainGridCheckbox;
+    @FindBy (xpath = "//*[@id='TASKS_GRID_ROLE_ID_4096_0_ADVANCED_N_table']/tbody/tr[35]/td[3]/span")
+    public WebElement GridItem;
+
+    @FindBy (id= "action_button_TASKS_GRID_ROLE_ID_4096_0_ADVANCED_N_control")
+    public WebElement selectActionButton;
+
+    @FindBy(xpath = "//*[@id='popup-window-content-menu-popup-action_button_TASKS_GRID_ROLE_ID_4096_0_ADVANCED_N_control_menu']/div/div/span[13]")
+    public WebElement deletSection;
+
+    @FindBy(id="apply_button_control")
+    public WebElement ApplyButton;
+
+    @FindBy(xpath = "//span[.='Continue']")
+    public WebElement ContinueButton;
+
+
+
+    @FindBy (xpath = "//*[@id='bx-component-scope-parenttask-bitrix_tasks_task_default_1']/span[2]/a/span[1]")
+    public  WebElement addSubtask;
+
+@FindBy (xpath = "//*[@id='parenttask_task_input']")
+    public  WebElement addSearchBox;
+
+@FindBy(xpath = "//*[@id='task-item-set-popupparenttask']/div[2]/span[1]")
+    public WebElement subTaskSelectButton;
+
+
+@FindBy(xpath = "//*[@id='task-form-bitrix_tasks_task_default_1']/div[3]/div[1]/div[1]/div/div/span/span[2]")
+    public WebElement ParticipantsButton;
+
+    @FindBy(xpath = "//*[@id='task-form-bitrix_tasks_task_default_1']/div[3]/div[1]/div[1]/div/div/span/span[3]")
+    public WebElement ObserversButton;
+
+
+
+
+
+
+    @FindBy(xpath = "//span[.='Checklist']")
+    public WebElement checkListButton;
+    @FindBy(xpath = "//input[contains(@class,'js-id-checklist-is-form-title')]")
+    public WebElement checkListAddButton;
+
+    @FindBy(xpath = " //span[.='separator']")
+    public WebElement checkListSeparatorButton;
+
+
 
 }

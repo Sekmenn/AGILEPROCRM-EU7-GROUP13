@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 public class TaskFunctionalityStepDefs {
 
@@ -58,19 +59,25 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
         taskFunctionalityPage.AddTsk.click();
 
     }
+    @And("user adds himself herself as responsible person")
+    public void userAddsHimselfHerselfAsResponsiblePerson() {
+        taskFunctionalityPage.responsiblepersonBox.sendKeys("marketing1@cybertekschool.com");
+    }
+
 
     @When("user clicks to More button")
     public void userClicksToTimeTrackingButton()  {
         BrowserUtils.waitFor(2);
         taskFunctionalityPage.more.click();
-    }
-
-    @When("user selects to task plan time section")
-    public void user_selects_to_task_plan_time_section() {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
         for (int i = 0; i < 10; i++) {
             jse.executeScript("window.scrollBy(0,250)");
         }
+    }
+
+    @When("user selects to task plan time section")
+    public void user_selects_to_task_plan_time_section() {
+
         taskFunctionalityPage.TaskPlanedTimeBox.click();
        Assert.assertTrue(taskFunctionalityPage.TaskPlanedTimeBox.isSelected());
 
@@ -86,10 +93,7 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
 
     @Then("user clicks to Add Reminder button")
     public void userClicksToAddReminderButton() {
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
-        for (int i = 0; i < 10; i++) {
-            jse.executeScript("window.scrollBy(0,250)");
-        }
+
         taskFunctionalityPage.AddRemind.click();
 
     }
@@ -121,10 +125,7 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
 
     @When("user clicks add dependent task button")
     public void user_clicks_add_dependent_task_button() {
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
-        for (int i = 0; i < 5; i++) {
-            jse.executeScript("window.scrollBy(0,250)");
-        }
+
         taskFunctionalityPage.DependentTasks.click();
 
 
@@ -159,57 +160,113 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
     }
 
     @And("user mentions  a marketing user .")
-    public void userMentionsAMarketingUser() {
-    taskFunctionalityPage.responsiblepersonBox.click();
-    //taskFunctionalityPage.mentionEmailList.get(3).click();
-    //Assert.assertTrue(taskFunctionalityPage.mentionEmailList.contains("marketing27@cybertekschool.com"));
+    public void user_Mentions_AMarketing_User() {
+    taskFunctionalityPage.mention.click();
+    taskFunctionalityPage.EmployeesEmailList.click();
     taskFunctionalityPage.email.click();
     }
 
     @Then("user chooses Time Planning")
-    public void userChoosesTimePlanning() {
+    public void user_Chooses_Time_Planning() {
         taskFunctionalityPage.timePlanning.click();
     }
 
     @Then("user selects deadline")
-    public void userSelectsTheTimeAnd() {
-
-
+    public void user_Selects_deadline() {
         int day = LocalDate.now().getDayOfMonth();
-
 
         taskFunctionalityPage.startTimeBox.click();
         taskFunctionalityPage.deadlineSelectButton.click();
 
         taskFunctionalityPage.endTimeBox.click();
-        WebElement deadlineDate=Driver.get().findElement(By.xpath("//div/a[@href='javascript:void(0)' and (.='"+day+"5')]"));
+        WebElement deadlineDate=Driver.get().findElement(By.xpath("//div/a[@href='javascript:void(0)' and (.='"+(day+5)+"')]"));
         deadlineDate.click();
 
-        taskFunctionalityPage.hourBox.sendKeys("11");
+        taskFunctionalityPage.hourBox.sendKeys("10");
         taskFunctionalityPage.minuteBox.sendKeys("15");
         taskFunctionalityPage.deadlineSelectButton.click();
 
 
     }
     @Then("user clicks to Option button")
-    public void userClicksToOptionButton() {
+    public void user_Clicks_To_Option_Button() {
         taskFunctionalityPage.Option.click();
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
-        for (int i = 0; i < 2; i++) {
-            jse.executeScript("window.scrollBy(0,250)");
-        }
 
 
     }
     @Then("user chooses the {string} and {string} section")
     public void userChoosesTheAndSection(String ResponsiblePersonCanChangeDeadline, String ApproveTaskWhenCompleted) {
         taskFunctionalityPage.ResponsiblePersonCanChangeDeadlineBox.click();
-        Assert.assertTrue(taskFunctionalityPage.ResponsiblePersonCanChangeDeadlineBox.isSelected());
         taskFunctionalityPage.ApproveTaskWhenCompletedBox.click();
+        Assert.assertTrue(taskFunctionalityPage.ResponsiblePersonCanChangeDeadlineBox.isSelected());
         Assert.assertTrue(taskFunctionalityPage.ApproveTaskWhenCompletedBox.isSelected());
 
 
 
+
+    }
+
+    @Then("user chooses main grid checkbox")
+    public void user_chooses_main_grid_checkbox() {
+        taskFunctionalityPage.mainGridCheckbox.click();
+
+
+    }
+
+
+    @Then("user clicks to SELECT ACTION button")
+    public void userClicksToSELECTACTIONButton() {
+        taskFunctionalityPage.selectActionButton.click();
+    }
+
+    @Then("user chooses delete section")
+    public void userChoosesDeleteSection() {
+        taskFunctionalityPage.deletSection.click();
+    }
+
+    @Then("user clicks to apply button")
+    public void userClicksToApplyButton() {
+        taskFunctionalityPage.ApplyButton.click();
+    }
+
+    @And("user clicks to continue button")
+    public void userClicksToContinueButton() {
+        taskFunctionalityPage.ContinueButton.click();
+    }
+
+
+    @Then("user clicks to subtask button")
+    public void userClicksToSubtaskButton() {
+        taskFunctionalityPage.addSubtask.click();
+    }
+
+    @And("user adds task")
+    public void userAddsTask() {
+        taskFunctionalityPage.addSearchBox.sendKeys("make a appointment");
+    }
+
+    @Then("user clicks to subtask select button")
+    public void userClicksToSubtaskSelectButton() {
+        taskFunctionalityPage.subTaskSelectButton.click();
+    }
+
+    @When("user clicks to check list button")
+    public void userClicksToCheckListButton() {
+        taskFunctionalityPage.checkListButton.click();
+    }
+
+    @Then("user clicks check List add the item")
+    public void userClicksCheckListAddTheItem() {
+        taskFunctionalityPage.checkListAddButton.sendKeys("TEST1");
+        taskFunctionalityPage.checkListAddButton.click();
+        taskFunctionalityPage.checkListSeparatorButton.click();
+
+        taskFunctionalityPage.checkListAddButton.sendKeys("TEST2");
+        taskFunctionalityPage.checkListAddButton.click();
+        taskFunctionalityPage.checkListSeparatorButton.click();
+        taskFunctionalityPage.checkListAddButton.sendKeys("TEST3");
+        taskFunctionalityPage.checkListAddButton.click();
+        taskFunctionalityPage.checkListSeparatorButton.click();
     }
 }
 
