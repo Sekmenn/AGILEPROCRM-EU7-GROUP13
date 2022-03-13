@@ -1,15 +1,28 @@
 package com.agileprocrm.pages;
 
+import com.agileprocrm.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SendMessage extends BasePage{
 
-    @FindBy(id = "bx-b-uploadfile-blogPostForm")
-    public WebElement UploadFiles;
+    public void attachment(String type){
+        Driver.get().findElement(By.xpath("(//span[@title='"+type+"'])[1]")).click();
+    }
 
-    @FindBy(xpath = "(//span[contains(@title,'Link')])[1]")
-    public WebElement Link;
+    @FindBy(css = "#video_idPostFormLHE_blogPostForm-source")
+    public WebElement videoSource;
+
+    @FindBy(css = "#linkidPostFormLHE_blogPostForm-text")
+    public WebElement linkTextBox;
+
+    @FindBy(id = "linkidPostFormLHE_blogPostForm-href")
+    public WebElement linkBox;
+
+    @FindBy(id = "undefined")
+    public WebElement saveButton;
+
 
     @FindBy(id = "bx-destination-tag")
     public WebElement AddMore;
@@ -44,11 +57,14 @@ public class SendMessage extends BasePage{
     @FindBy(xpath = "//div/a[@href='#U514']")
     public WebElement person2;
 
-    @FindBy(className = ".bx-editor-iframe")
+    @FindBy(className = "bx-editor-iframe")
     public WebElement textIframe;
 
     @FindBy(xpath = "//div[contains(@id,'blog_post_outer')]/div/div")
     public WebElement sentText;
+
+    @FindBy(className = "feed-post-text-block-inner-inner")
+    public WebElement mentionedPerson;
 
 
 

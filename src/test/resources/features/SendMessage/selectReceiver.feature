@@ -7,8 +7,8 @@ Feature: Add multiple users from Employees and Departments
     And The user click on "Message"
     When User click Add persons box
     And User click Employees and departments list
-    Then user add two persons from the list
-    And Verify that user sends the message
+    Then User add two persons from the list
+    And Verify that user send the message
     Examples:
       | userType           |
       | hr_username        |
