@@ -29,11 +29,11 @@ public class SendMessageDefs {
         String file = projectPath+"/src/test/resources/Files/"+ FileName;
         message.choiceFile.sendKeys(file);
         BrowserUtils.waitFor(1);
-        message.sendButton.click();
     }
 
     @Then("user verify the uploaded file named {string}")
     public void userVerifyTheUploadedFileName(String FileName) {
+        BrowserUtils.waitFor(2);
         String actualName = message.sentFile.getText();
         String expectedName = FileName;
         Assert.assertTrue(actualName.contains(expectedName));
@@ -60,6 +60,7 @@ public class SendMessageDefs {
 
     @And("User click Employees and departments list")
     public void userClickEmployeesAndDepartmentsList() {
+        BrowserUtils.waitFor(4);
         message.employeesTab.click();
     }
 
@@ -72,8 +73,6 @@ public class SendMessageDefs {
 
     @And("Verify that user send the message")
     public void verifyThatUserSendTheMessage() {
-
-        message.sendButton.click();
         BrowserUtils.waitFor(2);
         Assert.assertEquals(messageText,message.sentText.getText());
     }
@@ -118,7 +117,6 @@ public class SendMessageDefs {
 
     @Then("Verify that user send the quote")
     public void verifyThatUserSendTheQuote() {
-        message.sendButton.click();
         BrowserUtils.waitFor(2);
         String expectedTitle= "Quote";
         String actualTitle = Driver.get().findElement(By.className("blog-post-quote")).getAttribute("title");
@@ -132,10 +130,26 @@ public class SendMessageDefs {
 
     @Then("Verify that user added mention")
     public void verifyThatUserAddedMention() {
-        message.sendButton.click();
         BrowserUtils.waitFor(2);
 
         Assert.assertTrue(message.mentionedPerson.getText().contains("cybertekschool.com"));
 
+    }
+
+    @When("User type {string} into text box")
+    public void userTypeIntoTextBox(String str) {
+        Driver.get().switchTo().frame(message.textIframe);
+        Driver.get().findElement(By.xpath("//body")).sendKeys(str);
+        Driver.get().switchTo().defaultContent();
+    }
+
+    @And("User click send button")
+    public void userClickSendButton() {
+        message.sendButton.click();
+    }
+
+    @Then("Verify that The message title is not specified is displayed")
+    public void verifyThatIsDisplayed() {
+        Assert.assertTrue(message.errorText.isDisplayed());
     }
 }

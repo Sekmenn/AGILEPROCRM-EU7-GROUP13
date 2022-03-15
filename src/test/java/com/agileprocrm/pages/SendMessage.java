@@ -66,6 +66,9 @@ public class SendMessage extends BasePage{
     @FindBy(className = "feed-post-text-block-inner-inner")
     public WebElement mentionedPerson;
 
+    @FindBy(xpath = "//*[.='The message title is not specified']")
+    public WebElement errorText;
+
 
 
 
