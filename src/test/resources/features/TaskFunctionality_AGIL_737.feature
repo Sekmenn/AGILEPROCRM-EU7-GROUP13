@@ -1,5 +1,5 @@
 
-@ak
+@wip
 Feature: As a user, I should be able to use "Tasks" functionality so that user can create, change, delete and track the tasks either on Activity Stream or Taskspage.
 
 
@@ -76,6 +76,18 @@ Scenario: TC05_Marketing User can create a subtask of the first acceptance crite
       Then User  adds one more responsible person
       Then user adds Task
 
+  Scenario:TC07_ Marketing User can add participants and observers to already created task by editing
+    Given User enters "marketing_username" information
+    Then User should login
+    When The user navigates to "Tasks"
+    Then user clicks to New Task button
+    And user adds things to do
+    When user clicks to Participants button
+    Then  user adds an "email"
+    When user clicks to Observers button
+    Then  user adds an "email"
+    Then user adds Task
+
 
 
   Scenario: TC08_ Marketing User can add checklist to an already created task by editing
@@ -102,7 +114,7 @@ Scenario: TC05_Marketing User can create a subtask of the first acceptance crite
 
 
 
-    Scenario:HR User can be redirected to "New task template" page by clicking 'All templates' under "TASK TEMPLATES" menu on "New task" module.
+    Scenario:TC10_HR User can be redirected to "New task template" page by clicking 'All templates' under "TASK TEMPLATES" menu on "New task" module.
       Given User enters "hr_username" information
       Then User should login
       When The user navigates to "Tasks"
@@ -113,7 +125,7 @@ Scenario: TC05_Marketing User can create a subtask of the first acceptance crite
       Then user verify that user in the templates tasks page
 
 
-   Scenario:HR User can create new task template for high priority task, for him/herself, by mentioning about Marketing User, specifying the deadline, using the Options under 'Deadline in' section.
+   Scenario:TC11_HR User can create new task template for high priority task, for him/herself, by mentioning about Marketing User, specifying the deadline, using the Options under 'Deadline in' section.
      Given User enters "hr_username" information
      Then User should login
      When The user navigates to "Tasks"
@@ -124,15 +136,17 @@ Scenario: TC05_Marketing User can create a subtask of the first acceptance crite
      Then user chooses Time Planning
      Then user selects deadline
      Then user clicks to Option button
-     Then user chooses the "Responsible person can change deadline" and "Approve task when completed" section
+     Then user chooses the "Responsible person can change deadline"
+    Then user chooses the"Approve task when completed" section
      Then user adds Task
 
 
-    Scenario:HR User can delete task by using "SELECT ACTION" dropdown menu after checking the task.
+    Scenario:TC12_HR User can delete task by using "SELECT ACTION" dropdown menu after checking the task.
     Given User enters "hr_username" information
     Then User should login
     When The user navigates to "Tasks"
     Then user chooses main grid checkbox
+    Then user chooses grid item
     Then user clicks to SELECT ACTION button
     Then user chooses delete section
     Then user clicks to apply button

@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class TaskFunctionalityStepDefs {
 
-TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
+    TaskFunctionalityPage taskFunctionalityPage = new TaskFunctionalityPage();
 
     @Then("user clicks to New Task button")
     public void user_clicks_to_button() {
@@ -31,11 +31,12 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
         taskFunctionalityPage.AddThings.sendKeys("make a appointment");
 
     }
+
     @Then("user creates a high priority task")
     public void user_creates_a_high_priority_task() {
 
         taskFunctionalityPage.HighPriority.click();
-        Assert.assertTrue( taskFunctionalityPage.HighPriority.isSelected());
+        Assert.assertTrue(taskFunctionalityPage.HighPriority.isSelected());
 
     }
 
@@ -59,6 +60,7 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
         taskFunctionalityPage.AddTsk.click();
 
     }
+
     @And("user adds himself herself as responsible person")
     public void userAddsHimselfHerselfAsResponsiblePerson() {
         taskFunctionalityPage.responsiblepersonBox.sendKeys("marketing1@cybertekschool.com");
@@ -66,7 +68,7 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
 
 
     @When("user clicks to More button")
-    public void userClicksToTimeTrackingButton()  {
+    public void userClicksToTimeTrackingButton() {
         BrowserUtils.waitFor(2);
         taskFunctionalityPage.more.click();
         JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
@@ -79,7 +81,7 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
     public void user_selects_to_task_plan_time_section() {
 
         taskFunctionalityPage.TaskPlanedTimeBox.click();
-       Assert.assertTrue(taskFunctionalityPage.TaskPlanedTimeBox.isSelected());
+        Assert.assertTrue(taskFunctionalityPage.TaskPlanedTimeBox.isSelected());
 
     }
 
@@ -97,12 +99,14 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
         taskFunctionalityPage.AddRemind.click();
 
     }
+
     @Then("user selects the time")
     public void user_selects_the_time() {
         taskFunctionalityPage.dataBox.click();
         taskFunctionalityPage.Select2.click();
 
     }
+
     @Then("user chooses the mail section")
     public void userChoosesTheMailSection() {
         taskFunctionalityPage.MailSection.click();
@@ -118,7 +122,7 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
     @Then("User  adds one more responsible person")
     public void user_adds_one_more_responsible_person() {
         taskFunctionalityPage.AddMore.click();
-       Assert.assertTrue(taskFunctionalityPage.emailTable.getText().contains("marketing27@cybertekschool.com"));
+        Assert.assertTrue(taskFunctionalityPage.emailTable.getText().contains("marketing27@cybertekschool.com"));
 
 
     }
@@ -136,34 +140,38 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
         taskFunctionalityPage.RecentTasks.click();
 
     }
+
     @Then("user clicks to select button")
     public void userClicksToSelectButton() {
 
         taskFunctionalityPage.DependenTasktSelectButton.click();
     }
+
     @Then("user clicks to  Task Templates button")
     public void user_Clicks_To_Task_Templates_button() {
 
         taskFunctionalityPage.TaskTemplatesButton.click();
     }
+
     @Then("user chooses All templates section")
     public void userChoosesAllTemplatesSection() {
         taskFunctionalityPage.AllTemplates.click();
 
     }
+
     @Then("user verify that user in the templates tasks page")
     public void user_verify_that_user_in_the_templates_tasks_page() {
-        String expectedResult="https://qa.agileprocrm.com/company/personal/user/693/tasks/templates/";
+        String expectedResult = "https://qa.agileprocrm.com/company/personal/user/693/tasks/templates/";
         String actuaLResult = Driver.get().getCurrentUrl();
-        Assert.assertEquals("verify that user in the templates tasks page",actuaLResult,expectedResult);
+        Assert.assertEquals("verify that user in the templates tasks page", actuaLResult, expectedResult);
 
     }
 
     @And("user mentions  a marketing user .")
     public void user_Mentions_AMarketing_User() {
-    taskFunctionalityPage.mention.click();
-    taskFunctionalityPage.EmployeesEmailList.click();
-    taskFunctionalityPage.email.click();
+        taskFunctionalityPage.mention.click();
+        taskFunctionalityPage.EmployeesEmailList.click();
+        taskFunctionalityPage.email.click();
     }
 
     @Then("user chooses Time Planning")
@@ -179,7 +187,7 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
         taskFunctionalityPage.deadlineSelectButton.click();
 
         taskFunctionalityPage.endTimeBox.click();
-        WebElement deadlineDate=Driver.get().findElement(By.xpath("//div/a[@href='javascript:void(0)' and (.='"+(day+5)+"')]"));
+        WebElement deadlineDate = Driver.get().findElement(By.xpath("//div/a[@href='javascript:void(0)' and (.='" + (day + 5) + "')]"));
         deadlineDate.click();
 
         taskFunctionalityPage.hourBox.sendKeys("10");
@@ -188,34 +196,51 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
 
 
     }
+
     @Then("user clicks to Option button")
     public void user_Clicks_To_Option_Button() {
         taskFunctionalityPage.Option.click();
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
+        for (int i = 0; i < 10; i++) {
+            jse.executeScript("window.scrollBy(0,250)");
+        }
+
+    }
+
+
+    @Then("user chooses the {string}")
+    public void userChoosesThe(String ResponsiblePersonCanChangeDeadline) {
+        taskFunctionalityPage.ResponsiblePersonCanChangeDeadlineBox.click();
+        Assert.assertTrue(taskFunctionalityPage.ResponsiblePersonCanChangeDeadlineBox.isSelected());
 
 
     }
-    @Then("user chooses the {string} and {string} section")
-    public void userChoosesTheAndSection(String ResponsiblePersonCanChangeDeadline, String ApproveTaskWhenCompleted) {
-        taskFunctionalityPage.ResponsiblePersonCanChangeDeadlineBox.click();
+
+    @Then("user chooses the{string} section")
+    public void userChoosesTheSection(String ApproveTaskWhenCompletedSection) {
         taskFunctionalityPage.ApproveTaskWhenCompletedBox.click();
-        Assert.assertTrue(taskFunctionalityPage.ResponsiblePersonCanChangeDeadlineBox.isSelected());
         Assert.assertTrue(taskFunctionalityPage.ApproveTaskWhenCompletedBox.isSelected());
-
-
-
 
     }
 
     @Then("user chooses main grid checkbox")
     public void user_chooses_main_grid_checkbox() {
         taskFunctionalityPage.mainGridCheckbox.click();
-
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
+        for (int i = 0; i < 30; i++) {
+            jse.executeScript("window.scrollBy(0,250)");
+        }
 
     }
 
+    @Then("user chooses grid item")
+    public void userChoosesGridItem() {
+        taskFunctionalityPage.GridItem.click();
+    }
 
     @Then("user clicks to SELECT ACTION button")
     public void userClicksToSELECTACTIONButton() {
+
         taskFunctionalityPage.selectActionButton.click();
     }
 
@@ -237,6 +262,7 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
 
     @Then("user clicks to subtask button")
     public void userClicksToSubtaskButton() {
+
         taskFunctionalityPage.addSubtask.click();
     }
 
@@ -247,11 +273,13 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
 
     @Then("user clicks to subtask select button")
     public void userClicksToSubtaskSelectButton() {
+
         taskFunctionalityPage.subTaskSelectButton.click();
     }
 
     @When("user clicks to check list button")
     public void userClicksToCheckListButton() {
+
         taskFunctionalityPage.checkListButton.click();
     }
 
@@ -268,8 +296,45 @@ TaskFunctionalityPage taskFunctionalityPage= new TaskFunctionalityPage();
         taskFunctionalityPage.checkListAddButton.click();
         taskFunctionalityPage.checkListSeparatorButton.click();
     }
+
+    @When("user clicks to Participants button")
+    public void userClicksToParticipantsButton() {
+        taskFunctionalityPage.ParticipantsButton.click();
+        taskFunctionalityPage.ParticipantAddsButton.click();
+       /* taskFunctionalityPage.EmployeesEmailList.click();
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
+        for (int i = 0; i < 5; i++) {
+            jse.executeScript("window.scrollBy(0,250)");
+        }
+*/
+    }
+    @Then("user adds an {string}")
+    public void userAddsAn(String marketingUser) {
+        taskFunctionalityPage.marketing1email.click();
+        taskFunctionalityPage.closeButton.click();
+    }
+
+    @When("user clicks to Observers button")
+    public void userClicksToObserversButton() {
+        taskFunctionalityPage.ObserversButton.click();
+        taskFunctionalityPage.ObserversAddButton.click();
+       /* taskFunctionalityPage.EmployeesEmailList.click();
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.get();
+        for (int i = 0; i < 10; i++) {
+            jse.executeScript("window.scrollBy(0,250)");
+        }
+*/
+
+    }
+
+    @Then("user adds an email")
+    public void userAddsAnEmail() {
+
+        taskFunctionalityPage.hr2email.click();
+    }
+
+
+
 }
-
-
-
 

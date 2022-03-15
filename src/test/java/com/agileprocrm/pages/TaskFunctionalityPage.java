@@ -64,7 +64,7 @@ public class TaskFunctionalityPage extends BasePage{
     @FindBy (xpath = "//*/span[.='Add reminder']")
     public WebElement AddRemind;
 
-    @FindBy (xpath = "//*[@id=\"popup-window-content-reminder-bitrix_tasks_task_default_1-form\"]/span/div/span[1]/span/input[1]")
+    @FindBy (xpath = "//*[@id='popup-window-content-reminder-bitrix_tasks_task_default_1-form']/span/div/span[1]/span/input[1]")
     public WebElement dataBox;
 
     @FindBy (xpath = "//*/span[@class='bx-calendar-button-text'][1]")
@@ -140,7 +140,7 @@ public class TaskFunctionalityPage extends BasePage{
 
     @FindBy (xpath = "//input[contains(@id,'TASKS_GRID_ROLE_ID_')]")
     public WebElement mainGridCheckbox;
-    @FindBy (xpath = "//*[@id='TASKS_GRID_ROLE_ID_4096_0_ADVANCED_N_table']/tbody/tr[35]/td[3]/span")
+    @FindBy (xpath = "//*[@id='TASKS_GRID_ROLE_ID_4096_0_ADVANCED_N_table']/tbody/tr[22]/td[1]/span")
     public WebElement GridItem;
 
     @FindBy (id= "action_button_TASKS_GRID_ROLE_ID_4096_0_ADVANCED_N_control")
@@ -167,11 +167,27 @@ public class TaskFunctionalityPage extends BasePage{
     public WebElement subTaskSelectButton;
 
 
-@FindBy(xpath = "//*[@id='task-form-bitrix_tasks_task_default_1']/div[3]/div[1]/div[1]/div/div/span/span[2]")
+    @FindBy(xpath = "//span[@class='task-dashed-link-inner'][2]")
     public WebElement ParticipantsButton;
 
-    @FindBy(xpath = "//*[@id='task-form-bitrix_tasks_task_default_1']/div[3]/div[1]/div[1]/div/div/span/span[3]")
+    @FindBy (xpath = "//*[@id='bx-component-scope-bitrix_tasks_task_default_1-accomplice']/span[2]/a[2]")
+    public  WebElement  ParticipantAddsButton;
+
+    @FindBy (xpath = "//span[@class='popup-window-close-icon']")
+    public WebElement closeButton;
+
+    @FindBy(xpath = "//span[@class='task-dashed-link-inner'][3]")
     public WebElement ObserversButton;
+    @FindBy (xpath = "//*[@id='bx-component-scope-bitrix_tasks_task_default_1-auditor']/span[2]/a[2]")
+    public  WebElement  ObserversAddButton;
+
+
+    @FindBy (xpath = "//*[@href='#U592']")
+     public WebElement marketing1email;
+    @FindBy (xpath = " //*[@href='#U694']")
+    public WebElement hr2email;
+
+
 
 
 
