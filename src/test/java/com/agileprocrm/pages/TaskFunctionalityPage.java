@@ -130,17 +130,17 @@ public class TaskFunctionalityPage extends BasePage{
     @FindBy(xpath = "//*[@id='task-form-bitrix_tasks_task_default_1']/div[3]/div[2]/div/div[1]/span[2]/span[2]")
     public WebElement Option;
 
-    @FindBy (xpath = "//*[@id='bx-component-scope-options-bitrix_tasks_task_default_1']/div[1]/div/label/input")
+    @FindBy (xpath = "//input[contains(@class,'js-id-wg-optbar-flag-allow-change-deadline')]")
     public WebElement ResponsiblePersonCanChangeDeadlineBox;
 
 
-    @FindBy (xpath = "//*[@id='bx-component-scope-options-bitrix_tasks_task_default_1']/div[3]/div/label/input")
+    @FindBy (xpath = "//input[contains(@class,'js-id-wg-optbar-flag-task-control')]")
     public WebElement ApproveTaskWhenCompletedBox;
 
 
-    @FindBy (xpath = "//input[contains(@id,'TASKS_GRID_ROLE_ID_')]")
+    @FindBy (xpath = "//input[contains(@class,'main-grid-row-checkbox')][1]")
     public WebElement mainGridCheckbox;
-    @FindBy (xpath = "//*[@id='TASKS_GRID_ROLE_ID_4096_0_ADVANCED_N_table']/tbody/tr[22]/td[1]/span")
+    @FindBy (xpath = "/html/body/table/tbody/tr[2]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/div/div[2]/div/div[4]/div/form/div[2]/div[1]/div[6]/table/tbody/tr[2]/td[1]/span")
     public WebElement GridItem;
 
     @FindBy (id= "action_button_TASKS_GRID_ROLE_ID_4096_0_ADVANCED_N_control")

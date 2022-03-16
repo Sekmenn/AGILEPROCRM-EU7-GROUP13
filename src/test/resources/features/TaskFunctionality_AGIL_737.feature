@@ -1,5 +1,5 @@
 
-@wip
+
 Feature: As a user, I should be able to use "Tasks" functionality so that user can create, change, delete and track the tasks either on Activity Stream or Taskspage.
 
 
@@ -136,8 +136,7 @@ Scenario: TC05_Marketing User can create a subtask of the first acceptance crite
      Then user chooses Time Planning
      Then user selects deadline
      Then user clicks to Option button
-     Then user chooses the "Responsible person can change deadline"
-    Then user chooses the"Approve task when completed" section
+    Then user chooses the Responsible person can change deadline,Approve task when completed
      Then user adds Task
 
 
