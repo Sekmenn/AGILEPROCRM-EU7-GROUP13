@@ -19,7 +19,7 @@ public abstract class BasePage {
         return Driver.get().findElement(By.xpath("//*/span[.='"+tabName+"']"));
     }
 
-//    public void navigateToModule(String module){
-//        Driver.get().findElement(By.xpath("//li/a[@title='"+module+"']")).click();
-//    }
+    public WebElement downloadApp(String OS){
+        return Driver.get().findElement(By.xpath("//*[.='"+OS+"']"));
+    }
 }
