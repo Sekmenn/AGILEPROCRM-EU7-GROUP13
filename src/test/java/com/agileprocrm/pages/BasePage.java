@@ -15,7 +15,7 @@ public abstract class BasePage {
        return Driver.get().findElement(By.xpath("//a[@title='"+tabName+"']"));
     }
 
-//    public void navigateToModule(String module){
-//        Driver.get().findElement(By.xpath("//li/a[@title='"+module+"']")).click();
-//    }
+   public void navigateToModule(String module){
+      Driver.get().findElement(By.xpath("//li/a[@title='"+module+"']")).click();
+  }
 }
