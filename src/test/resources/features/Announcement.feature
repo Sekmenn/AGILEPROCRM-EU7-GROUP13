@@ -1,4 +1,4 @@
-@wip
+
 Feature: Sending Announcement
 
 
@@ -14,19 +14,33 @@ Feature: Sending Announcement
       | helpdesk_username  | textFile.pdf  |
       | marketing_username | textFile.txt  |
 
-
+  @wip
   Scenario Outline: Selecting document from bitrix
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
     When The user clicks on "Upload files" icon
     And The user selects document from "Sales and marketing" and chooses "NextBaseCRM Test Plan.docx"
-    Then The "Q3.java" file  should be added
+    Then The "NextBaseCRM Test Plan.docx" file  should be added
     # problem with the clicking sales and marketing
     Examples:
       | user               |
       | hr_username        |
       #| helpdesk_username  |
       #| marketing_username |
+
+
+  Scenario Outline: Download from external drive
+    Given The user logged in as "<user>"
+    And The user navigates to More and "Announcement"
+    When The user clicks on "Upload files" icon
+    And The user selects one of "Dropbox" external drive
+    Then The notification message shouldn't be appeared.
+
+    Examples:
+      | user               |
+      | hr_username        |
+      | helpdesk_username  |
+      | marketing_username |
 
 
   Scenario Outline: Adding recipients from contact lists
@@ -99,7 +113,7 @@ Feature: Sending Announcement
       | marketing_username |
 
 
-  Scenario Outline: Adding mention by clicking on mention icon
+  Scenario Outline: Adding editor text box by clicking visual editor icon
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
     When The user clicks on "Visual editor" icon
@@ -112,7 +126,7 @@ Feature: Sending Announcement
       | marketing_username |
 
 
-  Scenario Outline: Adding mention by clicking on mention icon
+  Scenario Outline: Adding topic box by clicking on mention icon
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
     When The user clicks on "Topic" icon

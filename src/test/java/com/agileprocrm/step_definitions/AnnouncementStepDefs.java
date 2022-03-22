@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -53,7 +54,8 @@ public class AnnouncementStepDefs {
     @And("The user selects document from {string} and chooses {string}")
     public void theUserSelectsDocumentFromAndChooses(String supply, String fileName) {
         announcementPage.fromBitrix.click();
-        announcementPage.selectSupply(supply).click();
+        BrowserUtils.clickWithJS(announcementPage.trial);//announcementPage.selectSupply(supply).click();
+        //announcementPage.trial.click();
         announcementPage.selectFile(fileName).click();
         announcementPage.selectButton.click();
     }
@@ -143,6 +145,7 @@ public class AnnouncementStepDefs {
 
     @Then("The user should be record a video and attach it with the message.")
     public void theUserShouldBeRecordAVideoAndAttachItWithTheMessage() {
+        BrowserUtils.waitFor(5);
         Assert.assertTrue(announcementPage.topicBox.isDisplayed());
     }
 
@@ -156,5 +159,15 @@ public class AnnouncementStepDefs {
     public void shouldBeViewedInTheTagsBox(String tagText) {
         String actualResult = announcementPage.tagName(tagText).getText();
         Assert.assertEquals(tagText,actualResult);
+    }
+
+    @And("The user selects one of {string} external drive")
+    public void theUserSelectsOneOfExternalDrive(String driveName) {
+        announcementPage.selectExternalDrive(driveName).click();
+    }
+
+    @Then("The notification message shouldn't be appeared.")
+    public void theNotificationMessageShouldnTBeAppeared() {
+        Assert.assertFalse("verify notification message",announcementPage.notifMessage.isDisplayed());
     }
 }
