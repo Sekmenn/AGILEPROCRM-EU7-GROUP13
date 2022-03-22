@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+@wip
+>>>>>>> origin/caner
 Feature: Sending Announcement
 
 
@@ -14,13 +18,21 @@ Feature: Sending Announcement
       | helpdesk_username  | textFile.pdf  |
       | marketing_username | textFile.txt  |
 
+<<<<<<< HEAD
   @wip
+=======
+
+>>>>>>> origin/caner
   Scenario Outline: Selecting document from bitrix
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
     When The user clicks on "Upload files" icon
     And The user selects document from "Sales and marketing" and chooses "NextBaseCRM Test Plan.docx"
+<<<<<<< HEAD
     Then The "NextBaseCRM Test Plan.docx" file  should be added
+=======
+    Then The "Q3.java" file  should be added
+>>>>>>> origin/caner
     # problem with the clicking sales and marketing
     Examples:
       | user               |
@@ -29,6 +41,7 @@ Feature: Sending Announcement
       #| marketing_username |
 
 
+<<<<<<< HEAD
   Scenario Outline: Download from external drive
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
@@ -43,6 +56,8 @@ Feature: Sending Announcement
       | marketing_username |
 
 
+=======
+>>>>>>> origin/caner
   Scenario Outline: Adding recipients from contact lists
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
@@ -113,7 +128,11 @@ Feature: Sending Announcement
       | marketing_username |
 
 
+<<<<<<< HEAD
   Scenario Outline: Adding editor text box by clicking visual editor icon
+=======
+  Scenario Outline: Adding mention by clicking on mention icon
+>>>>>>> origin/caner
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
     When The user clicks on "Visual editor" icon
@@ -126,7 +145,11 @@ Feature: Sending Announcement
       | marketing_username |
 
 
+<<<<<<< HEAD
   Scenario Outline: Adding topic box by clicking on mention icon
+=======
+  Scenario Outline: Adding mention by clicking on mention icon
+>>>>>>> origin/caner
     Given The user logged in as "<user>"
     And The user navigates to More and "Announcement"
     When The user clicks on "Topic" icon

@@ -11,7 +11,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+<<<<<<< HEAD
 import org.openqa.selenium.Keys;
+=======
+>>>>>>> origin/caner
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -54,8 +57,12 @@ public class AnnouncementStepDefs {
     @And("The user selects document from {string} and chooses {string}")
     public void theUserSelectsDocumentFromAndChooses(String supply, String fileName) {
         announcementPage.fromBitrix.click();
+<<<<<<< HEAD
         BrowserUtils.clickWithJS(announcementPage.trial);//announcementPage.selectSupply(supply).click();
         //announcementPage.trial.click();
+=======
+        announcementPage.selectSupply(supply).click();
+>>>>>>> origin/caner
         announcementPage.selectFile(fileName).click();
         announcementPage.selectButton.click();
     }
@@ -145,7 +152,10 @@ public class AnnouncementStepDefs {
 
     @Then("The user should be record a video and attach it with the message.")
     public void theUserShouldBeRecordAVideoAndAttachItWithTheMessage() {
+<<<<<<< HEAD
         BrowserUtils.waitFor(5);
+=======
+>>>>>>> origin/caner
         Assert.assertTrue(announcementPage.topicBox.isDisplayed());
     }
 
@@ -160,6 +170,7 @@ public class AnnouncementStepDefs {
         String actualResult = announcementPage.tagName(tagText).getText();
         Assert.assertEquals(tagText,actualResult);
     }
+<<<<<<< HEAD
 
     @And("The user selects one of {string} external drive")
     public void theUserSelectsOneOfExternalDrive(String driveName) {
@@ -170,4 +181,6 @@ public class AnnouncementStepDefs {
     public void theNotificationMessageShouldnTBeAppeared() {
         Assert.assertFalse("verify notification message",announcementPage.notifMessage.isDisplayed());
     }
+=======
+>>>>>>> origin/caner
 }

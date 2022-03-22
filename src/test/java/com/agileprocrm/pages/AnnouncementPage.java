@@ -33,10 +33,14 @@ public class AnnouncementPage extends BasePage{
         return Driver.get().findElement(By.xpath("//span[@title='Name: "+fileName+"']/a"));
     }
 
+<<<<<<< HEAD
     @FindBy(xpath = "//span[contains(text(),'Sales and marketing')]")
     public WebElement trial;
 
     @FindBy(xpath = "//span[.='Select document']")
+=======
+    @FindBy(id = "Select document")
+>>>>>>> origin/caner
     public WebElement selectButton;
 
     @FindBy(id = "bx-destination-tag")
@@ -99,6 +103,7 @@ public class AnnouncementPage extends BasePage{
 
     @FindBy(className = "bxhtmled-video-error-cell")
     public WebElement videoError;
+<<<<<<< HEAD
 
     public WebElement selectExternalDrive(String driveName){
         return Driver.get().findElement(By.xpath("//span [.='"+driveName+"']"));
@@ -106,4 +111,6 @@ public class AnnouncementPage extends BasePage{
 
     @FindBy(className= "ui-notification-balloon-content")
     public WebElement notifMessage;
+=======
+>>>>>>> origin/caner
 }
